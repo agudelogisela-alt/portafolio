@@ -1,0 +1,596 @@
+/* ========================================
+   1. ESTILOS GLOBALES
+======================================== */
+
+:root {
+  --pink: #E953F5;
+  --purple: #2B0075;
+  --black: #171017;
+  --white: #FFFFFF;
+
+  --font-heading: "Cooper BT", "Cooper Black", Georgia, serif;
+  --font-body: "Montserrat", "Inter", sans-serif;
+
+  --page-gradient: linear-gradient(
+    135deg,
+    #E58BD8 0%,
+    #E953F5 55%,
+    #F32C9B 100%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--purple);
+  font-family: var(--font-body);
+  background: var(--page-gradient);
+  background-attachment: fixed;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ========================================
+   2. NAVEGACIÓN
+======================================== */
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+
+.navigation {
+  position: relative;
+}
+
+.menu-toggle {
+  display: flex;
+  width: 44px;
+  height: 38px;
+  padding: 4px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(13px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-13px) rotate(-45deg);
+}
+
+.navigation-menu {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  display: flex;
+  min-width: 190px;
+  padding: 12px;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgb(43 0 117 / 15%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 10px 30px rgb(43 0 117 / 10%);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.navigation-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navigation-menu a {
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navigation-menu a:hover,
+.navigation-menu a[aria-current="page"] {
+  background: rgb(233 83 245 / 18%);
+}
+
+.cart-link {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-link svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ========================================
+   3. PÁGINA DE INICIO
+======================================== */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-hero {
+  display: grid;
+  width: 100%;
+  min-height: 100svh;
+  padding: 105px 24px 45px;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.home-content {
+  z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: 35px;
+}
+
+.designer-name {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: clamp(3.1rem, 11vw, 5.7rem);
+  font-weight: 900;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.designer-name span:last-child {
+  margin-left: 0.4em;
+}
+
+.profession {
+  margin: 15px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.65rem);
+  font-style: italic;
+}
+
+.intro-description {
+  max-width: 660px;
+  margin: 0 auto;
+  font-size: clamp(0.86rem, 1.5vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.portfolio-link {
+  display: inline-flex;
+  margin-top: 26px;
+  padding-bottom: 5px;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.portfolio-link span {
+  transition: transform 0.2s ease;
+}
+
+.portfolio-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.portrait-container {
+  display: flex;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.designer-portrait {
+  width: 100%;
+  max-height: 68svh;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+
+/* ========================================
+   4. PÁGINA DE PORTAFOLIO
+======================================== */
+
+.portfolio-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-hero {
+  display: flex;
+  width: 100%;
+  min-height: 100svh;
+  padding: 115px 24px 60px;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-title {
+  margin: 0 0 38px;
+  font-family: var(--font-heading);
+  font-size: clamp(3.4rem, 10vw, 5.7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  width: min(100%, 345px);
+  height: 57px;
+  padding: 5px 17px;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid var(--black);
+  border-radius: 40px;
+  color: var(--black);
+}
+
+.search-icon {
+  width: 31px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--black);
+  font-size: 1rem;
+}
+
+.search-form:focus-within {
+  box-shadow: 0 0 0 2px rgb(43 0 117 / 15%);
+}
+
+.search-form input:focus-visible {
+  outline: none;
+}
+
+.search-message {
+  min-height: 1.3em;
+  margin: 15px 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.projects-grid {
+  display: grid;
+  width: min(100%, 1100px);
+  margin: 25px auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 35%);
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.project-card h2 {
+  margin: 14px;
+  font-size: 1rem;
+}
+
+.project-card[hidden] {
+  display: none;
+}
+
+
+/* ========================================
+   5. FORMULARIO DE CONTACTO
+======================================== */
+
+.contact-section {
+  width: min(100% - 40px, 560px);
+  margin: 35px auto 65px;
+  padding: 28px;
+  border: 1px solid rgb(43 0 117 / 20%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 16%);
+}
+
+.contact-section h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 5vw, 2.4rem);
+}
+
+.contact-section > p {
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form label {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgb(43 0 117 / 35%);
+  border-radius: 9px;
+  background: rgb(255 255 255 / 65%);
+  color: var(--purple);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.submit-button {
+  margin-top: 12px;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--purple);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.form-message {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   6. PIE DE PÁGINA
+======================================== */
+
+.site-footer {
+  display: flex;
+  padding: 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 0.78rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  font-weight: 600;
+}
+
+
+/* ========================================
+   7. TABLETS Y ESCRITORIOS
+======================================== */
+
+@media (min-width: 768px) {
+  .site-header {
+    padding: 25px 30px;
+  }
+
+  .home-hero {
+    min-height: 100svh;
+    padding: 50px 5vw 0;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    gap: 0;
+  }
+
+  .home-content {
+    align-self: center;
+    text-align: center;
+  }
+
+  .intro {
+    margin-bottom: 85px;
+  }
+
+  .designer-name {
+    font-size: clamp(4.5rem, 6.3vw, 6rem);
+  }
+
+  .designer-name span:last-child {
+    margin-left: 0.5em;
+  }
+
+  .intro-description {
+    max-width: 680px;
+    font-size: 1rem;
+  }
+
+  .portrait-container {
+    width: 100%;
+    max-width: 460px;
+    height: 100%;
+    align-self: end;
+  }
+
+  .designer-portrait {
+    max-height: 90svh;
+    object-position: center bottom;
+  }
+
+  .portfolio-hero {
+    padding-top: 128px;
+  }
+
+  .portfolio-title {
+    margin-bottom: 42px;
+    font-size: clamp(5rem, 7vw, 6rem);
+  }
+
+  .search-form {
+    width: 345px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .contact-section {
+    padding: 36px;
+  }
+}
+
+
+/* ========================================
+   8. AJUSTES PARA PANTALLAS PEQUEÑAS
+======================================== */
+
+@media (max-width: 380px) {
+  .site-header {
+    padding: 18px;
+  }
+
+  .home-hero {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .designer-name {
+    font-size: 2.9rem;
+  }
+
+  .portfolio-title {
+    font-size: 3rem;
+  }
+
+  .contact-section {
+    padding: 20px;
+  }
+
+  .site-footer {
+    padding: 20px 16px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

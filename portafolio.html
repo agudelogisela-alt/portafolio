@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora los proyectos de diseño gráfico de Gisela Agudelo.">
+  <meta name="theme-color" content="#E953F5">
+  <title>Portafolio | Gisela Agudelo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="navigation" aria-label="Navegación principal">
+      <button class="menu-toggle" type="button"
+        aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navigation-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navigation-menu" id="navigation-menu">
+        <a href="index.html">Inicio</a>
+        <a href="portafolio.html" aria-current="page">Portafolio</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+
+    <a class="cart-link" href="#contacto"
+      aria-label="Ir a contacto">
+      <svg viewBox="0 0 64 64" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor"
+          stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M5 7h8l7 34a5 5 0 0 0 5 4h27"/>
+          <path d="M16 15h43l-6 24H21"/>
+          <path d="M24 19l3 16M33 19l1 16M42 19l-1 16M51 19l-3 16"/>
+          <path d="M19 24h39M21 31h36"/>
+          <circle cx="27" cy="52" r="3.5"/>
+          <circle cx="49" cy="52" r="3.5"/>
+        </g>
+      </svg>
+    </a>
+  </header>
+
+  <main>
+    <section class="portfolio-hero" aria-labelledby="portfolio-title">
+      <h1 class="portfolio-title" id="portfolio-title">
+        Portafolio
+      </h1>
+
+      <form class="search-form" role="search" id="project-search-form">
+        <label class="visually-hidden" for="project-search">
+          Buscar proyectos
+        </label>
+
+        <svg class="search-icon" viewBox="0 0 32 32"
+          aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="13" r="9" fill="none"
+            stroke="currentColor" stroke-width="2.4"/>
+          <path d="M19.5 19.5 28 28" fill="none"
+            stroke="currentColor" stroke-width="3"
+            stroke-linecap="round"/>
+        </svg>
+
+        <input
+          type="search"
+          id="project-search"
+          name="q"
+          placeholder=""
+          autocomplete="off"
+          aria-label="Buscar proyectos por nombre o categoría"
+        >
+      </form>
+
+      <p class="search-message" id="search-message"
+        aria-live="polite"></p>
+
+      <!-- Agrega aquí las tarjetas de tus proyectos. -->
+      <div class="projects-grid" id="projects-grid">
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <h2>¿Creamos algo juntos?</h2>
+      <p>Cuéntame sobre tu proyecto.</p>
+
+      <form class="contact-form" id="contact-form">
+        <label for="contact-name">Nombre</label>
+        <input id="contact-name" name="nombre"
+          type="text" required placeholder="Tu nombre">
+
+        <label for="contact-email">Correo electrónico</label>
+        <input id="contact-email" name="correo"
+          type="email" required placeholder="tu@correo.com">
+
+        <label for="contact-message">Mensaje</label>
+        <textarea id="contact-message" name="mensaje"
+          rows="4" required placeholder="Hablemos de tu idea..."></textarea>
+
+        <button class="submit-button" type="submit">
+          Enviar mensaje
+        </button>
+
+        <p class="form-message" id="form-message"
+          aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span class="current-year">2026</span> Gisela Agudelo</p>
+    <a href="index.html">Volver al inicio ↑</a>
+  </footer>
+</body>
+</html>

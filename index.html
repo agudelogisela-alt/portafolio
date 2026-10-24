@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Gisela Agudelo, diseñadora gráfica.">
+  <meta name="theme-color" content="#E953F5">
+  <title>Gisela Agudelo | Diseñadora Gráfica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="home-page">
+  <header class="site-header">
+    <nav class="navigation" aria-label="Navegación principal">
+      <button class="menu-toggle" type="button"
+        aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navigation-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navigation-menu" id="navigation-menu">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="home-content">
+        <div class="intro">
+          <h1 class="designer-name" id="hero-title">
+            <span>Gisela</span>
+            <span>Agudelo</span>
+          </h1>
+
+          <p class="profession">Diseñadora Gráfica</p>
+        </div>
+
+        <p class="intro-description">
+          Soy diseñadora gráfica apasionada por la creatividad,
+          el arte y la comunicación visual. Me gusta transformar
+          ideas en propuestas visuales que transmitan emociones,
+          comuniquen mensajes y conecten con las personas.
+        </p>
+
+        <a class="portfolio-link" href="portafolio.html">
+          Explora mi portafolio <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="portrait-container">
+        <img
+          class="designer-portrait"
+          src="assets/gisela.png"
+          alt="Retrato de Gisela Agudelo, diseñadora gráfica"
+          fetchpriority="high"
+        >
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <p>© <span class="current-year">2026</span> Gisela Agudelo</p>
+    <a href="portafolio.html">Conoce mi trabajo</a>
+  </footer>
+</body>
+</html>
